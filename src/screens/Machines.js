@@ -10,13 +10,17 @@ class Machines extends React.Component {
 	}
 	constructor(props) {
 		super(props);
-		this.props.getMachines();
+		this.props.getMachines();		
+	}
+
+	handleClickItem = (id) => {
+		window.location.href = '/machines/' + id;
 	}
 
 	render() {
 		return <div>
 			<div>Machines view</div>
-			<MachinesList machines={this.props.machines}/>
+			<MachinesList machines={this.props.machines} onClickItem={(val) => this.handleClickItem(val)}/>
 		</div>
 	}
 }

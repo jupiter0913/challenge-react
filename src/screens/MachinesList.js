@@ -20,6 +20,7 @@ class MachinesList extends Component {
 
   handleClick = id => {
     this.props.getMachineHealth(id);
+    this.props.onClickItem(id);
   };
   render() {
     return (
@@ -39,11 +40,11 @@ class MachinesList extends Component {
             })
           }
         </div>
-        <div style={{paddingTop: 150}}>
+        {/* <div style={{paddingTop: 150}}>
             <div style={objectStyle}>{this.props.machine_health.name}</div>
             <div style={objectStyle}>{this.props.machine_health.ip_address}</div>
             <div style={objectStyle}>{this.props.machine_health.health}</div>
-        </div>
+        </div> */}
       </div>
     )
   }
