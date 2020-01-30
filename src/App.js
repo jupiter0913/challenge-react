@@ -8,9 +8,10 @@ import {
 	Link
 } from 'react-router-dom';
 import Machines from './screens/Machines';
+import Machine from './screens/Machine';
 import './App.css';
 
-function App () {
+function App() {
 	return (
 		<Router>
 			<Provider store={store}>
@@ -25,6 +26,9 @@ function App () {
 					</nav>
 
 					<Switch>
+						<Route path='/machines/:machineId'>
+							<Machine />
+						</Route>
 						<Route path='/machines'>
 							<Machines />
 						</Route>
