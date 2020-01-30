@@ -3,7 +3,8 @@ import { API_ENDPOINT } from 'react-native-dotenv';
 
 export default () => {
     const defaultOptions = {
-        baseURL: API_ENDPOINT,
+        // baseURL: API_ENDPOINT,
+        baseURL: 'http://localhost:8080',
         timeout: 15 * 1000,
         headers: {
             'Content-Type': 'application/json',
