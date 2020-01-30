@@ -7,7 +7,7 @@ import {
 	Switch,
 	Link
 } from 'react-router-dom';
-import Machines from './Machines';
+import Machines from './screens/Machines';
 import './App.css';
 
 function App () {
