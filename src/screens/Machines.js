@@ -1,5 +1,5 @@
 import React from 'react';
-import { getMachines } from './actions';
+import { getMachines } from '../actions';
 import MachinesList from './MachinesList';
 
 import { connect } from "react-redux";
