@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Button from '../components/Button';
-import PropTypes from "prop-types";
+import { getMachineHealth } from '../actions';
+import { connect } from "react-redux";
 
 const objectStyle = {
   float: 'left',
@@ -9,13 +10,16 @@ const objectStyle = {
   height: 30
 };
 
-export default class MachinesList extends Component {
-  static propTypes = {
-    clickHandler: PropTypes.func,
-  };
+class MachinesList extends Component {
+  state = {
+    machine_health: [],
+  }
+  constructor(props) {
+    super(props);
+  }
 
   handleClick = id => {
-    console.log(id);
+    this.props.getMachineHealth(id);
   };
   render() {
     return (
@@ -35,7 +39,28 @@ export default class MachinesList extends Component {
             })
           }
         </div>
+        <div style={{paddingTop: 150}}>
+            <div style={objectStyle}>{this.props.machine_health.name}</div>
+            <div style={objectStyle}>{this.props.machine_health.ip_address}</div>
+            <div style={objectStyle}>{this.props.machine_health.health}</div>
+        </div>
       </div>
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    ...state.machine_health,
+  }
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  getMachineHealth: (data) => dispatch(getMachineHealth(data)),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(MachinesList);
+
