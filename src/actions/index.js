@@ -45,7 +45,6 @@ export const getMachinesAPI = () => {
     return new Promise((resolve, reject) => {
         API().get(`/machines`)
             .then(res => {
-                // resolve(res.data.machines);
                 resolve(res.data);
             })
             .catch((err) => {
@@ -90,8 +89,9 @@ export const getMachineHealthError = () => (
 );
 
 export const getMachineHealthAPI = (id) => {
+    console.log(id)
     return new Promise((resolve, reject) => {
-        API().get(`/machines/${id}`)
+        API().get(`${id}`)
             .then(res => {
                 resolve(res.data);
             })
